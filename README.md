@@ -48,4 +48,5 @@ Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE
 Para más información o consultas, puedes contactarme a través de mi correo electrónico edgarmila_10@outlook.com o visitar mi perfil de GitHub: [DemboNauta](https://github.com/DemboNauta).
 
 Gracias por usar SafePasswordGenerator. ¡Espero que te sea útil!
-https://edgarsafepasswordgenerator.netlify.app/
+![image](https://github.com/user-attachments/assets/d3e3e98b-fd15-4966-b932-d5ac3d680f42)
+
