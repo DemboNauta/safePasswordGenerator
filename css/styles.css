@@ -122,6 +122,7 @@ h1 {
 }
 
 #contenedorTiempo{
+    display: none;
     border-radius: 3px;
     background-color: rgba(255, 255, 255, 0.925);
     -webkit-box-shadow: 1px 13px 30px -17px rgba(255,255,255,1);

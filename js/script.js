@@ -86,8 +86,9 @@ window.addEventListener('load', () => {
 
             const passwordString = password.join('');
             document.getElementById('generatedPassword').value = passwordString;
-            document.getElementById('costeHackeo').textContent = calcularTiempo(passwordString);
             document.getElementById('costeHackeo').style.color='black';
+            document.getElementById('costeHackeo').textContent = calcularTiempo(passwordString);
+            document.getElementById('contenedorTiempo').style.display= 'block'
         }
         copiarBtn.addEventListener('click', () => {
             var copyText = document.getElementById("generatedPassword");
