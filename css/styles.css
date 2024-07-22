@@ -1,0 +1,194 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #000000 0%, #222222 75%, #333333 100%);
+    color: #fff;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+#titulo {
+    margin-bottom: 50px;
+}
+
+#avisoLongitud {
+    font-size: 12px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+    max-width: 600px;
+    width: 100%;
+    background: rgba(17, 16, 16, 0);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    margin: auto;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #e0e0e0;
+}
+
+input[type="number"], 
+input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: linear-gradient(180deg, #333333 0%, #444444 100%);
+    color: #fff;
+    font-size: 1em;
+    box-sizing: border-box;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+input[type="number"]:focus, 
+input[type="text"]:focus {
+    background: linear-gradient(180deg, #444444 0%, #555555 100%);
+    border-color: #fff;
+    outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#generarBtn {
+    width: 50%;
+    padding: 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #000000 0%, #222222 100%);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    margin-bottom: 20px;
+    
+}
+
+#generarBtn:hover {
+    background: linear-gradient(135deg, #222222 0%, #444444 100%);
+    color: #fff;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.input-group .button {
+    flex: 0;
+    width: auto;
+    padding: 10px 15px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #000000 0%, #222222 100%);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+h1 {
+    font-size: 1.5em;
+    text-align: center;
+    margin-top: 20px;
+    color: #e0e0e0;
+}
+
+#contenedorTiempo{
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.925);
+    -webkit-box-shadow: 1px 13px 30px -17px rgba(255,255,255,1);
+    -moz-box-shadow: 1px 13px 30px -17px rgba(255,255,255,1);
+    box-shadow: 1px 13px 30px -17px rgb(252, 252, 252);
+
+}
+/* .notification {
+    position: absolute;
+    top: -50px;
+    right: -29px;
+    background-color: #264126;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+
+}
+    
+
+.notification::after {
+    content: '';
+    position: absolute;
+    bottom: -9px;
+    right: 60px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #264126;
+} */
+
+.notification {
+    position: absolute;
+    top: -50px;
+    right: -29px;
+    background: linear-gradient(90deg, #ffffff 0%, #888888 50%, #1a1a1a 100%);
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+#costeHackeo{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+    
+    label, input[type="number"], input[type="text"], #generarBtn, h1 {
+        font-size: 1em;
+    }
+}

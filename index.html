@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contraseñas</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="./js/script.js"></script>
+</head>
+<body>
+    <div class="contenido">
+        <h1 id="titulo">SafePasswordGenerator</h1>
+        <div class="container">
+            <div class="form-group">
+                <label for="longitud">¿Qué longitud quieres que tenga la contraseña?</label>
+                <p id="avisoLongitud">La longitud mínima será de 6 caracteres</p>
+                <input type="number" name="longitud" id="longitud" min="6" max="128">
+            </div>
+            <input type="button" value="Generar" id="generarBtn" class="button">
+            <div class="form-group">
+                <label for="generatedPassword">Contraseña generada:</label>
+                <div class="input-group">
+                    <input type="text" name="generatedPassword" id="generatedPassword" readonly>
+                    <input type="button" value="Copiar" id="copiarBtn" class="button">
+                    <div id="copyNotification" class="notification">Copiado!</div>
+                </div>
+            </div>
+            <div id="contenedorTiempo">
+                <h1 id="costeHackeo"></h1>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
