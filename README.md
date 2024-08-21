@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/d3e3e98b-fd15-4966-b932-d5ac3d680f42)
+![image](https://github.com/user-attachments/assets/bb8d7205-cb23-44de-b515-00a1dfa07098)
+
 
  
  # SafePasswordGenerator
