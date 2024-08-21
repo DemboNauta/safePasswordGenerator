@@ -1,11 +1,11 @@
 /* styles.css */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(180deg, #000000 0%, #222222 75%, #333333 100%);
     color: #fff;
     height: 100vh;
     padding: 20px;
     box-sizing: border-box;
+    background: linear-gradient(180deg, #000000 0%, #222222 75%, #333333 100%);
 }
 
 
@@ -39,6 +39,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
     margin: auto;
+    min-height: 670px;
 }
 
 
@@ -300,6 +301,7 @@ h1 {
 @media (max-width: 480px) {
     .container {
         padding: 20px;
+        min-height: 854px;
     }
 
     label,
