@@ -64,52 +64,55 @@ window.addEventListener('DOMContentLoaded', () => {
 
     boton.addEventListener('click', () => {
         const longitud = parseInt(document.getElementById('longitud').value);
-        const includeUppercase = document.getElementById('uppercase').checked;
-        const includeLowercase = document.getElementById('lowercase').checked;
-        const includeNumbers = document.getElementById('numbers').checked;
-        const includeSymbols = document.getElementById('symbols').checked;
-    
-        let password = [];
-        let charset = '';
-    
-        // Garantizar al menos un carácter de cada tipo seleccionado
-        if (includeUppercase) {
-            const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            password.push(uppercase.charAt(Math.floor(Math.random() * uppercase.length)));
-            charset += uppercase;
+        if(longitud>5){
+            const includeUppercase = document.getElementById('uppercase').checked;
+            const includeLowercase = document.getElementById('lowercase').checked;
+            const includeNumbers = document.getElementById('numbers').checked;
+            const includeSymbols = document.getElementById('symbols').checked;
+        
+            let password = [];
+            let charset = '';
+        
+            // Garantizar al menos un carácter de cada tipo seleccionado
+            if (includeUppercase) {
+                const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                password.push(uppercase.charAt(Math.floor(Math.random() * uppercase.length)));
+                charset += uppercase;
+            }
+        
+            if (includeLowercase) {
+                const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+                password.push(lowercase.charAt(Math.floor(Math.random() * lowercase.length)));
+                charset += lowercase;
+            }
+        
+            if (includeNumbers) {
+                const numbers = '0123456789';
+                password.push(numbers.charAt(Math.floor(Math.random() * numbers.length)));
+                charset += numbers;
+            }
+        
+            if (includeSymbols) {
+                const symbols = '!@#$%^&*()_+[]{}|;:,.<>/?';
+                password.push(symbols.charAt(Math.floor(Math.random() * symbols.length)));
+                charset += symbols;
+            }
+        
+            // Completar la longitud de la contraseña con caracteres aleatorios del conjunto permitido
+            for (let i = password.length; i < longitud; i++) {
+                password.push(charset.charAt(Math.floor(Math.random() * charset.length)));
+            }
+        
+            // Mezclar la contraseña para que los caracteres garantizados no estén en los primeros lugares
+            password = password.sort(() => 0.5 - Math.random());
+        
+            const passwordString = password.join('');
+            document.getElementById('generatedPassword').value = passwordString;
+            document.getElementById('costeHackeo').style.color = 'black';
+            document.getElementById('costeHackeo').textContent = calcularTiempo(passwordString);
+            document.getElementById('contenedorTiempo').style.display = 'block';
         }
-    
-        if (includeLowercase) {
-            const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-            password.push(lowercase.charAt(Math.floor(Math.random() * lowercase.length)));
-            charset += lowercase;
-        }
-    
-        if (includeNumbers) {
-            const numbers = '0123456789';
-            password.push(numbers.charAt(Math.floor(Math.random() * numbers.length)));
-            charset += numbers;
-        }
-    
-        if (includeSymbols) {
-            const symbols = '!@#$%^&*()_+[]{}|;:,.<>/?';
-            password.push(symbols.charAt(Math.floor(Math.random() * symbols.length)));
-            charset += symbols;
-        }
-    
-        // Completar la longitud de la contraseña con caracteres aleatorios del conjunto permitido
-        for (let i = password.length; i < longitud; i++) {
-            password.push(charset.charAt(Math.floor(Math.random() * charset.length)));
-        }
-    
-        // Mezclar la contraseña para que los caracteres garantizados no estén en los primeros lugares
-        password = password.sort(() => 0.5 - Math.random());
-    
-        const passwordString = password.join('');
-        document.getElementById('generatedPassword').value = passwordString;
-        document.getElementById('costeHackeo').style.color = 'black';
-        document.getElementById('costeHackeo').textContent = calcularTiempo(passwordString);
-        document.getElementById('contenedorTiempo').style.display = 'block';
+        
     });
     
     copiarBtn.addEventListener('click', () => {
