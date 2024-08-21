@@ -7,7 +7,7 @@ SafePasswordGenerator es una herramienta web para generar contraseñas seguras d
 
 ## Características
 
-- Generación de contraseñas seguras con longitud personalizable.
+- Generación de contraseñas seguras con longitud y dificultad personalizable.
 - Estimación del tiempo necesario para hackear la contraseña.
 - Copia de la contraseña generada al portapapeles con notificación visual.
 
@@ -27,6 +27,7 @@ Luego, abre el archivo index.html en tu navegador web para comenzar a usar la ap
 
 ## Uso
 Configura la longitud de la contraseña: Introduce el valor deseado en el campo de longitud (mínimo 6 caracteres).
+Selecciona que características tiene que tener la contraseña
 Genera una contraseña: Haz clic en el botón "Generar" para crear una nueva contraseña.
 Copia la contraseña: Utiliza el botón de copiar al lado del campo de contraseña para copiarla al portapapeles. Se mostrará una notificación confirmando que la contraseña ha sido copiada.
 Visualiza el tiempo de hackeo: La aplicación estimará el tiempo necesario para hackear la contraseña y lo mostrará en la interfaz.
