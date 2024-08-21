@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generador de Contraseñas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/script.js"></script>
 </head>
@@ -14,7 +15,59 @@
             <div class="form-group">
                 <label for="longitud">¿Qué longitud quieres que tenga la contraseña?</label>
                 <p id="avisoLongitud">La longitud mínima será de 6 caracteres</p>
-                <input type="number" name="longitud" id="longitud" min="6" max="128">
+                <input type="number" name="longitud" id="longitud" min="6" max="128" value="12">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <label for="uppercase" class="d-inline">Incluir letras mayúsculas</label>
+                            </div>
+                            <div class="col-4">
+                                <div class="checkbox-wrapper-8">
+                                    <input class="tgl tgl-skewed" id="uppercase" type="checkbox" name="uppercase"/>
+                                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="uppercase"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="lowercase" class="d-inline">Incluir letras minúsculas</label>
+                            </div>
+                            <div class="col-4">
+                                <div class="checkbox-wrapper-8">
+                                    <input class="tgl tgl-skewed" id="lowercase" type="checkbox" name="lowercase"/>
+                                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="lowercase"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="row mb-4">
+                            <div class="col-8">
+                                <label for="numbers" class="d-inline">Incluir números</label>
+                            </div>
+                            <div class="col-4">
+                                <div class="checkbox-wrapper-8">
+                                    <input class="tgl tgl-skewed" id="numbers" type="checkbox" name="numbers"/>
+                                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="numbers"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8">
+                                <label for="symbols" class="d-inline">Incluir caracteres especiales</label>
+                            </div>
+                            <div class="col-4">
+                                <div class="checkbox-wrapper-8">
+                                    <input class="tgl tgl-skewed" id="symbols" type="checkbox" name="symbols"/>
+                                    <label class="tgl-btn" data-tg-off="OFF" data-tg-on="ON" for="symbols"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <input type="button" value="Generar" id="generarBtn" class="button">
             <div class="form-group">
@@ -22,7 +75,7 @@
                 <div class="input-group">
                     <input type="text" name="generatedPassword" id="generatedPassword" readonly>
                     <input type="button" value="Copiar" id="copiarBtn" class="button">
-                    <div id="copyNotification" class="notification">Copiado!</div>
+                    <div id="copyNotification" class="notification">¡Copiado!</div>
                 </div>
             </div>
             <div id="contenedorTiempo">

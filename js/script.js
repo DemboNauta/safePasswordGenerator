@@ -58,47 +58,68 @@ function calcularTiempo(password) {
 }
 
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const boton = document.getElementById('generarBtn');
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-    const numbers = '0123456789';
-    const specialCharacters = '!@#$%^&*()_+[]{}|;:,.<>/?';
+
 
     boton.addEventListener('click', () => {
         const longitud = parseInt(document.getElementById('longitud').value);
-        if (longitud >= 1 && longitud <= 99999) {
-            let password = [];
-            for (let i = 0; i < longitud - 6; i++) {
-                password.push(letters.charAt(Math.floor(Math.random() * letters.length)));
-            }
-
-            for (let i = 0; i < 4; i++) {
-                let newChar = specialCharacters.charAt(Math.floor(Math.random() * specialCharacters.length));
-                password.splice(Math.floor(Math.random() * (password.length + 1)), 0, newChar);
-            }
-
-            for (let i = 0; i < 2; i++) {
-                let newChar = numbers.charAt(Math.floor(Math.random() * numbers.length));
-                password.splice(Math.floor(Math.random() * (password.length + 1)), 0, newChar);
-            }
-
-            password = password.sort(() => 0.5 - Math.random());
-
-            const passwordString = password.join('');
-            document.getElementById('generatedPassword').value = passwordString;
-            document.getElementById('costeHackeo').style.color='black';
-            document.getElementById('costeHackeo').textContent = calcularTiempo(passwordString);
-            document.getElementById('contenedorTiempo').style.display= 'block'
+        const includeUppercase = document.getElementById('uppercase').checked;
+        const includeLowercase = document.getElementById('lowercase').checked;
+        const includeNumbers = document.getElementById('numbers').checked;
+        const includeSymbols = document.getElementById('symbols').checked;
+    
+        let password = [];
+        let charset = '';
+    
+        // Garantizar al menos un carácter de cada tipo seleccionado
+        if (includeUppercase) {
+            const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            password.push(uppercase.charAt(Math.floor(Math.random() * uppercase.length)));
+            charset += uppercase;
         }
-        copiarBtn.addEventListener('click', () => {
-            var copyText = document.getElementById("generatedPassword");
-            const notification = document.getElementById('copyNotification');
-            navigator.clipboard.writeText(copyText.value);
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 1000); 
-        });
+    
+        if (includeLowercase) {
+            const lowercase = 'abcdefghijklmnopqrstuvwxyz';
+            password.push(lowercase.charAt(Math.floor(Math.random() * lowercase.length)));
+            charset += lowercase;
+        }
+    
+        if (includeNumbers) {
+            const numbers = '0123456789';
+            password.push(numbers.charAt(Math.floor(Math.random() * numbers.length)));
+            charset += numbers;
+        }
+    
+        if (includeSymbols) {
+            const symbols = '!@#$%^&*()_+[]{}|;:,.<>/?';
+            password.push(symbols.charAt(Math.floor(Math.random() * symbols.length)));
+            charset += symbols;
+        }
+    
+        // Completar la longitud de la contraseña con caracteres aleatorios del conjunto permitido
+        for (let i = password.length; i < longitud; i++) {
+            password.push(charset.charAt(Math.floor(Math.random() * charset.length)));
+        }
+    
+        // Mezclar la contraseña para que los caracteres garantizados no estén en los primeros lugares
+        password = password.sort(() => 0.5 - Math.random());
+    
+        const passwordString = password.join('');
+        document.getElementById('generatedPassword').value = passwordString;
+        document.getElementById('costeHackeo').style.color = 'black';
+        document.getElementById('costeHackeo').textContent = calcularTiempo(passwordString);
+        document.getElementById('contenedorTiempo').style.display = 'block';
+    });
+    
+    copiarBtn.addEventListener('click', () => {
+        var copyText = document.getElementById("generatedPassword");
+        const notification = document.getElementById('copyNotification');
+        navigator.clipboard.writeText(copyText.value);
+        notification.classList.add('show');
+        setTimeout(() => {
+            notification.classList.remove('show');
+        }, 1000); 
     });
     
 });
