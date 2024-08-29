@@ -14,7 +14,7 @@ function calcularTiempo(password) {
     if (/[\W_]/.test(password)) posiblesCaracteres += caracteres[3].length;
 
     const combinacionesPosibles = Math.pow(posiblesCaracteres, password.length);
-    const intentosPorSegundo = 1e9; // 1,000,000,000 intentos por segundo
+    const intentosPorSegundo = 1e9; 
 
     const segundos = combinacionesPosibles / intentosPorSegundo;
     const minutos = segundos / 60;
@@ -60,8 +60,22 @@ function calcularTiempo(password) {
 
 window.addEventListener('DOMContentLoaded', () => {
     const boton = document.getElementById('generarBtn');
+    const longitud = document.getElementById('longitud');
+    const longitudValor = document.getElementById('longitud-valor');
+    longitudValor.textContent = longitud.value;
 
+    longitud.addEventListener('input',()=>{
+        longitudValor.textContent = longitud.value;
+    })
 
+    const defaultButtons = document.getElementsByClassName('default-button');
+    for(let button of defaultButtons){
+        button.addEventListener('click', () => {
+            longitud.value = button.value;
+            longitudValor.textContent = button.value;
+        })
+    }
+    
     boton.addEventListener('click', () => {
         const longitud = parseInt(document.getElementById('longitud').value);
         if(longitud>5){
@@ -98,12 +112,10 @@ window.addEventListener('DOMContentLoaded', () => {
                 charset += symbols;
             }
         
-            // Completar la longitud de la contraseña con caracteres aleatorios del conjunto permitido
             for (let i = password.length; i < longitud; i++) {
                 password.push(charset.charAt(Math.floor(Math.random() * charset.length)));
             }
         
-            // Mezclar la contraseña para que los caracteres garantizados no estén en los primeros lugares
             password = password.sort(() => 0.5 - Math.random());
         
             const passwordString = password.join('');

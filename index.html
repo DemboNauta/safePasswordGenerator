@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
     <script src="./js/script.js"></script>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
     <div class="contenido">
@@ -15,8 +16,24 @@
             <div class="form-group">
                 <label for="longitud">¿Qué longitud quieres que tenga la contraseña?</label>
                 <p id="avisoLongitud">La longitud mínima será de 6 caracteres</p>
-                <input type="number" name="longitud" id="longitud" min="6" max="128" value="12">
+                <div class="w-50 mx-auto">
+                    <input type="range" name="longitud" id="longitud" min="6" max="80" value="12" class="form-range custom-range">
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h5 id="longitud-valor"></h5>
+                </div>
             </div>
+
+            <div class="mb-4" id="default-buttons-div">
+                <button value="4" class="default-button">4</button>
+                <button value="6" class="default-button">6</button>
+                <button value="8" class="default-button">8</button>
+                <button value="10" class="default-button">10</button>
+                <button value="12" class="default-button">12</button>
+                <button value="14" class="default-button">14</button>
+                
+            </div>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-12 col-sm-6">
